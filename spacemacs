@@ -31,9 +31,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     go
-     python
-     javascript
+     ;; go
+     ;; python
+     ;; javascript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -54,16 +54,14 @@ values."
      ;; version-control
      semantic
      html
-     ipython-notebook
+     ;; ipython-notebook
      ;; java ;; needs eclim
-     javascript
      shell-scripts
      yaml
      github
-     ansible
+     ;; ansible
      docker
-     pandoc
-     spotify
+     ;; pandoc
      ;; chrome
      ;; latex
      ;; lua
@@ -71,7 +69,6 @@ values."
      ;; clojure
      ;; c-c++
      ;; keyboard-layout
-     xkcd
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
