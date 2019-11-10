@@ -9,7 +9,7 @@ FROM debian:buster-slim
 LABEL MAINTAINER="Paulo Suderio <paulo.suderio@gmail.com>"
 LABEL DESCRIPTION="Ambiente de desenvolvimento com neovim e emacs"
 
-#Locale
+#Locale - it should be configurable
 RUN apt-get update && apt-get install -y locales \
     && localedef -i pt_BR -c -f UTF-8 -A /usr/share/locale/locale.alias pt_BR.UTF-8
 ENV LANG pt_BR.utf8
@@ -18,7 +18,6 @@ ENV LC_ALL pt_BR.UTF-8
 RUN echo 'LANG=pt_BR.UTF-8' >> /etc/locale.conf
 RUN echo 'KEYMAP=br-abnt2' >> /etc/vconsole.conf
 
-RUN cat /etc/apt/sources.list
 # Configure proxy
 ARG proxy
 ENV HTTP_PROXY=$proxy HTTPS_PROXY=$proxy NO_PROXY=$no_proxy http_proxy=$proxy https_proxy=$proxy no_proxy=localhost,127.0.0.1
@@ -53,6 +52,7 @@ RUN nvim +PlugInstall +qall >> /dev/null
 
 # Install tmux plugins
 RUN git clone https://github.com/tmux-plugins/tpm .tmux/plugins/tpm
+ENV TMUX_PLUGIN_MANAGER_PATH /home/idev/.tmux/plugins
 RUN .tmux/plugins/tpm/bin/install_plugins
 
 # Entrypoint script
