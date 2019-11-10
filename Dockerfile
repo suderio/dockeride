@@ -57,6 +57,7 @@ RUN .tmux/plugins/tpm/bin/install_plugins
 
 # Entrypoint script
 COPY entrypoint.sh /bin/entrypoint.sh
+RUN chmod +x /bin/entrypoint.sh
 WORKDIR /workspace
 CMD ["/bin/entrypoint.sh"]
 
