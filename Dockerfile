@@ -24,7 +24,7 @@ ARG proxy
 ENV HTTP_PROXY=$proxy HTTPS_PROXY=$proxy NO_PROXY=$no_proxy http_proxy=$proxy https_proxy=$proxy no_proxy=localhost,127.0.0.1
 
 # Base install
-RUN apt-get install -y neovim git zsh tmux openssh-client bash curl docker-compose emacs \
+RUN apt-get install -y neovim git zsh tmux openssh-client curl docker-compose emacs-nox \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
